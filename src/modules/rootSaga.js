@@ -8,9 +8,6 @@ import {
   watchLoadMoreStargazers,
   watchLoadMoreStarred
 } from './github/sagas';
-// import {
-//   watchLoadProducts
-// } from './github';
 
 // CUSTOM METHOD FOR USAGE AT server.js TO RUN SAGAS ON SERVER SIDE (e.g. fetch data)
 export const waitAll = (sagas) => function* genTasks() {
