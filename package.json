@@ -2,7 +2,7 @@
   "name": "react-universal-saga-modular",
   "description": "Universal & Modular React Kit ft. Redux Saga",
   "author": "Kawi Xiao <kawixiao@gmail.com>",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/xkawi/react-universal-saga-modular"
