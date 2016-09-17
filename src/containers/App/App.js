@@ -6,7 +6,7 @@ import {
   navigate,
   updateRouterState,
   resetErrorMessage
-} from 'modules/github/actions';
+} from 'modules/common/actions';
 
 import styles from './App.scss'; // eslint-disable-line
 
@@ -73,13 +73,6 @@ App.propTypes = {
   }),
   params: PropTypes.object
 };
-
-// function preload() {
-//   return [
-//     [sagaName]
-//   ];
-// }
-// App.preload = preload;
 
 function mapStateToProps(state) {
   return {

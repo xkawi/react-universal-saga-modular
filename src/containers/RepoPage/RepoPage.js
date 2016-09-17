@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { loadRepoPage, loadMoreStargazers } from 'modules/github/actions';
+import { viewActions } from 'modules/github/actions';
 import { Repo, User, List } from 'components';
 import styles from './RepoPage.scss'; // eslint-disable-line
 
@@ -12,17 +13,17 @@ class RepoPage extends Component {
   }
 
   componentWillMount() {
-    this.props.loadRepoPage(this.props.fullName);
+    this.props.actions.loadRepoPage(this.props.fullName);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.fullName !== this.props.fullName) {
-      this.props.loadRepoPage(nextProps.fullName);
+      this.props.actions.loadRepoPage(nextProps.fullName);
     }
   }
 
   handleLoadMoreClick() {
-    this.props.loadMoreStargazers(this.props.fullName);
+    this.props.actions.loadMoreStargazers(this.props.fullName);
   }
 
   renderUser(user) {
@@ -59,8 +60,10 @@ RepoPage.propTypes = {
   owner: PropTypes.object,
   stargazers: PropTypes.array.isRequired,
   stargazersPagination: PropTypes.object,
-  loadRepoPage: PropTypes.func.isRequired,
-  loadMoreStargazers: PropTypes.func.isRequired
+  actions: PropTypes.shape({
+    loadRepoPage: PropTypes.func.isRequired,
+    loadMoreStargazers: PropTypes.func.isRequired
+  })
 };
 
 function mapStateToProps(state) {
@@ -84,7 +87,10 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {
-  loadRepoPage,
-  loadMoreStargazers
-})(RepoPage);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(viewActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RepoPage);

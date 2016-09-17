@@ -2,7 +2,9 @@ import { fork, join } from 'redux-saga/effects';
 
 // IMPORT ALL SAGA WATCHERS
 import {
-  watchNavigate,
+  watchNavigate
+} from './common/sagas';
+import {
   watchLoadUserPage,
   watchLoadRepoPage,
   watchLoadMoreStargazers,

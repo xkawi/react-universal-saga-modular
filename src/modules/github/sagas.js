@@ -1,12 +1,12 @@
 /* eslint-disable no-constant-condition */
 import { take, put, call, fork, select } from 'redux-saga/effects';
-import { api, history } from 'services';
+import { api } from 'services';
 import * as actions from './actions';
 
 import { getUser, getRepo, getStarredByUser, getStargazersByRepo } from './selectors';
 
 // each entity defines 3 creators { request, success, failure }
-const { user, repo, starred, stargazers } = actions;
+const { user, repo, starred, stargazers } = actions.sagaActions;
 
 // url for first page
 // urls for next pages will be extracted from the successive loadMore* requests
@@ -83,14 +83,6 @@ function* loadStargazers(fullName, loadMore) {
  ****************************** WATCHERS ***********************************
  **/
 
-// trigger router navigation via history
-export function* watchNavigate() {
-  while (true) {
-    const { pathname } = yield take(actions.NAVIGATE);
-    yield history.push(pathname);
-  }
-}
-
 // Fetches data for a User : user data + starred repos
 export function* watchLoadUserPage() {
   while (true) {
@@ -129,7 +121,6 @@ export function* watchLoadMoreStargazers() {
 }
 
 export default {
-  watchNavigate,
   watchLoadUserPage,
   watchLoadRepoPage,
   watchLoadMoreStarred,

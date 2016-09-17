@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { loadUserPage, loadMoreStarred } from 'modules/github/actions';
+import { viewActions } from 'modules/github/actions';
 import { loadUser, loadStarred } from 'modules/github/sagas';
 import { User, Repo, List } from 'components';
 
@@ -13,17 +14,17 @@ class UserPage extends Component {
   }
 
   componentWillMount() {
-    this.props.loadUserPage(this.props.login);
+    this.props.actions.loadUserPage(this.props.login);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.login !== nextProps.login) {
-      this.props.loadUserPage(nextProps.login);
+      this.props.actions.loadUserPage(nextProps.login);
     }
   }
 
   handleLoadMoreClick() {
-    this.props.loadMoreStarred(this.props.login);
+    this.props.actions.loadMoreStarred(this.props.login);
   }
 
   renderRepo([repo, owner]) {
@@ -57,12 +58,22 @@ class UserPage extends Component {
 UserPage.propTypes = {
   login: PropTypes.string.isRequired,
   user: PropTypes.object,
+  actions: PropTypes.shape({
+    loadUserPage: PropTypes.func.isRequired,
+    loadMoreStarred: PropTypes.func.isRequired
+  }),
   starredPagination: PropTypes.object,
   starredRepos: PropTypes.array.isRequired,
-  starredRepoOwners: PropTypes.array.isRequired,
-  loadUserPage: PropTypes.func.isRequired,
-  loadMoreStarred: PropTypes.func.isRequired
+  starredRepoOwners: PropTypes.array.isRequired
 };
+
+function preload({ login }) {
+  return [
+    [loadUser, login, []],
+    [loadStarred, login]
+  ];
+}
+UserPage.preload = preload;
 
 function mapStateToProps(state) {
   const { login } = state.router.params;
@@ -84,15 +95,10 @@ function mapStateToProps(state) {
   };
 }
 
-function preload({ login }) {
-  return [
-    [loadUser, login, []],
-    [loadStarred, login]
-  ];
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(viewActions, dispatch)
+  };
 }
-UserPage.preload = preload;
 
-export default connect(mapStateToProps, {
-  loadUserPage,
-  loadMoreStarred
-})(UserPage);
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage);
