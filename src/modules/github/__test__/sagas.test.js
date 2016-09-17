@@ -1,32 +1,19 @@
-// import { take, put, call, select } from 'redux-saga/effects';
+import { select } from 'redux-saga/effects';
+import { loadUser } from '../sagas';
+import { getUser } from '../selectors';
 
-// import { loadLeads } from '../sagas';
+describe('fetching user profile', () => {
+  const username = 'xkawi';
+  const generator = loadUser(username, []);
+  let next = undefined;
 
-// import { constants, listSagaActions } from '../actions';
-// import { getLeadsQueryParams } from '../selectors';
+  it('from local state', () => {
+    next = generator.next();
+    expect(next.value).toEqual(select(getUser, username)); // eslint-disable-line
+  });
 
-// import { leadService } from 'services/api';
-// import { fetchEntityList } from 'modules/common/sagas';
-
-// export const fetchLeads = fetchEntityList.bind(null, listSagaActions, leadService.fetchLeads);
-
-// const dummyQueryParams = { page: 1 };
-
-// describe('fetching leads', () => {
-//   const generator = loadLeads();
-//   let next = undefined;
-//   it('gets query params correctly', () => {
-//     next = generator.next();
-//     expect(next.value).toEqual(select(getLeadsQueryParams));
-//   });
-
-//   it('call bounded fetchLeads functions', () => {
-//     next = generator.next(dummyQueryParams);
-//     expect(JSON.stringify(next.value)).toBe(JSON.stringify(call(fetchLeads, dummyQueryParams)));
-//   });
-
-//   it('completed', () => {
-//     next = generator.next();
-//     expect(next.value).toBe(undefined);
-//   });
-// });
+  it('skip fetching from github api', () => {
+    next = generator.next(username);
+    expect(next.value).toEqual(undefined); // eslint-disable-line
+  });
+});
