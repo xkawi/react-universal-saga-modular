@@ -3,7 +3,7 @@
 
 an evolution of [react-universal-saga](https://github.com/xkawi/react-universal-saga) with a more modular code structure, inspired by [react-boilerplate](https://github.com/mxstbr/react-boilerplate).
 
-*Some of you might wonder, why another repo instead of making the changes into react-universal-saga directly?*
+**Some of you might wonder, why another repo instead of making the changes into react-universal-saga directly?**
 
 My answer would be: to show people that there are other (perhaps better) ways of managing/organising your code. I do not want to claim that this approach is better than others. I do want to contribute back to the society things that works for me and that I find others would benefit from it.
 
