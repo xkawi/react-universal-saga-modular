@@ -54,8 +54,6 @@ The main objective of react-universal-saga-modular is to provide a more modular,
 
 * [redux-persist](https://github.com/rt2zz/redux-persist) - persist state to browser local storage
 
-* [redux-form](https://github.com/erikras/redux-form) - form state manager 
-
 * [react-helmet](https://github.com/nfl/react-helmet) - Document head manager
 
 * [Jest](https://github.com/facebook/jest) - Painless JavaScript Testing
