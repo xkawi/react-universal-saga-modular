@@ -123,6 +123,7 @@
     "redux": "^3.5.2",
     "redux-form": "^3.0.12",
     "redux-logger": "^2.6.1",
+    "redux-persist": "^4.0.0-alpha5",
     "redux-saga": "^0.10.5",
     "scroll-behavior": "^0.7.0",
     "serialize-javascript": "^1.1.2",
