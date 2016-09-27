@@ -11,11 +11,17 @@ $ cd react-universal-saga-modular
 $ npm install
 $ npm run build-dev
 $ npm run dev
+$ npm run lint
+$ npm test
 $ npm run build
 $ npm start
 ```
 
-`build-dev` and `dev` commands are meant for development purpose (e.g. loggin, hot module replacement). When it is ready for deployment, use `build` and `npm start` command.
+`build-dev` and `dev` commands are meant for development purpose (e.g. logging, hot module replacement).
+
+`npm run lint` is to perform eslint check across your code base, while `npm test` executes test cases with Jest.
+
+When it is ready for deployment, `build` the production ready folder and `npm start` to run it. You would need something like [PM2](https://github.com/Unitech/pm2) to run your code/React project as daemon/service.
 
 NOTE: PORT is not set for `better-npm-run start-prod` script, because it is necessary configuration for Heroku deployment. If you need to specify the port, feel free to add it.
 
