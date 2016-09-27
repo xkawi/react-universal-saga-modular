@@ -3,11 +3,32 @@
 
 an evolution of [react-universal-saga](https://github.com/xkawi/react-universal-saga) with a more modular code structure, inspired by [react-boilerplate](https://github.com/mxstbr/react-boilerplate).
 
-**Some of you might wonder, why another repo instead of making the changes into react-universal-saga directly?**
+## Getting Started
 
-My answer would be: to show people that there are other (perhaps better) ways of managing/organising your code. I do not want to claim that this approach is better than others. I do want to contribute back to the society things that works for me and that I find others would benefit from it.
+```
+$ git clone https://github.com/xkawi/react-universal-saga-modular.git
+$ cd react-universal-saga-modular
+$ npm install
+$ npm run build-dev
+$ npm run dev
+$ npm run build
+$ npm start
+```
 
-My experience of putting things together for react-universal-saga has given me a new insights of a "better approach" in organising/structuring the codebase. Hence, this repo is born. So now, you can go take a look at both approaches, react-universal-saga and react-universal-saga-modular, and pick things that are relevant or useful for you. :smile: _though if you ask my preference, I would choose react-universal-saga-modular over react-universal-saga._
+`build-dev` and `dev` commands are meant for development purpose (e.g. loggin, hot module replacement). When it is ready for deployment, use `build` and `npm start` command.
+
+NOTE: PORT is not set for `better-npm-run start-prod` script, because it is necessary configuration for Heroku deployment. If you need to specify the port, feel free to add it.
+
+## Why?
+
+The main objective of react-universal-saga-modular is to provide a more modular, scalable, and manageable codebase as your project grows in complexity and size. This repo can serve as an example, or a starting point for your next Universal React project. If you are not familiar with this structure, or prefer something else (e.g. generator-based, less opinionated, etc) feel free to checkout other alternatives, such as:
+
+* [react-universal-saga](https://github.com/xkawi/react-universal-saga)
+* [react-boilerplate](https://github.com/mxstbr/react-boilerplate)
+* [react-server](https://github.com/redfin/react-server)
+* [retax](https://github.com/retaxJS/retax)
+* [react-universally](https://github.com/ctrlplusb/react-universally)
+* [create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ## Features
 
