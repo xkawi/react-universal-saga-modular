@@ -106,11 +106,11 @@ Again, this is just something that I come up with to helps organise the code bet
 
 Redux Persist is used to achieve this. To demonstrate this, follow this steps:
 
-1. Type a github username and click "Go"
+1. Type a github username (e.g. xkawi) and click "Go"
 
 2. scroll all the way down and click "Load More"
 
-3. Refresh the page. You will notice that, the @@INIT state will have more than 50 (per page is 30) users and repos entities. If you observe the Network tab within Chrome Dev Tools (right click anywhere within the website > Inspect), there is not extra network calls made. This demonstrate Redux Persist in action. The bulk of the logic can be found at `src > client.js`.  
+3. Visit another username (e.g. someone), and back to the previous username (e.g. xkawi). You will notice that, the list will be more than 50 repos. Without persistence, the repo list will always set to 30 when componentWillMount(). In this case, Redux Persist is in action, and it restores back whatever data that are stored in browser local storage, and merge them with the initialState from server-side rendering. The bulk of the logic can be found at `src > client.js`.  
 
 ## Testing
 
