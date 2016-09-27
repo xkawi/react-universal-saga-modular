@@ -36,6 +36,7 @@
     "postinstall": "npm run build",
     "lint": "eslint -c .eslintrc src",
     "start-dev": "better-npm-run start-dev",
+    "build-dev": "better-npm-run build-dev",
     "watch-client": "better-npm-run watch-client",
     "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "test": "jest"
@@ -77,6 +78,12 @@
         "UV_THREADPOOL_SIZE": 100,
         "NODE_PATH": "./src",
         "PORT": 3000
+      }
+    },
+    "build-dev": {
+      "command": "webpack --verbose --colors --display-error-details --config webpack/dev.config.js",
+      "env": {
+        "NODE_ENV": "development"
       }
     },
     "build": {
