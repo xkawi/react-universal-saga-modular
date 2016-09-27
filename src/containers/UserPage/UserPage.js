@@ -14,9 +14,7 @@ class UserPage extends Component {
   }
 
   componentWillMount() {
-    if (!this.props.user) {
-      this.props.actions.loadUserPage(this.props.login);
-    }
+    this.props.actions.loadUserPage(this.props.login);
   }
 
   componentWillReceiveProps(nextProps) {
