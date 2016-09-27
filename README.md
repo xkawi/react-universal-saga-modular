@@ -110,7 +110,7 @@ Redux Persist is used to achieve this. To demonstrate this, follow this steps:
 
 2. scroll all the way down and click "Load More"
 
-3. Visit another username (e.g. someone), and back to the previous username (e.g. xkawi). You will notice that, the list will be more than 50 repos. Without persistence, the repo list will always set to 30 when componentWillMount(). In this case, Redux Persist is in action, and it restores back whatever data that are stored in browser local storage, and merge them with the initialState from server-side rendering. The bulk of the logic can be found at `src > client.js`.  
+3. Visit another username (e.g. someone), and back to the previous username (e.g. xkawi). You will notice at Redux DevTools panel, the @@INIT action contains all previous user entities and repos restored from browser local storage. You can then write your own logic anywhere to use these restored data. The bulk of the logic for this can be found at `src > client.js`.  
 
 ## Testing
 
