@@ -15,7 +15,7 @@ import configureStore from './store/configureStore';
 import Html from './helpers/Html';
 import getRoutes from './routes';
 import { waitAll } from './modules/rootSaga';
-import { Root } from 'containers';
+import Root from './containers/Root/Root';
 
 const pretty = new PrettyError();
 const app = new Express();

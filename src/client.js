@@ -1,12 +1,11 @@
-import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import GoogleAnalytics from 'react-ga';
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
 import { getStoredState, createPersistor } from 'redux-persist';
 
-import { Root } from 'containers';
-import rootSaga from 'modules/rootSaga';
+import Root from './containers/Root/Root';
+import rootSaga from './modules/rootSaga';
 import getRoutes from './routes';
 import { history } from './services';
 import configureStore from './store/configureStore';
@@ -16,7 +15,7 @@ GoogleAnalytics.initialize(config.app.googleAnalytics.appId);
 
 async function renderClient() {
   const persistConfig = {
-    whitelist: ['entities']
+    whitelist: ['entities', 'pagination']
   };
 
   // window.__data = initial state passed down by server to client

@@ -1,6 +1,6 @@
 import * as ActionTypes from './actions';
-import { merge } from 'lodash';
 import paginate from './paginate';
+import merge from 'lodash/merge';
 import { combineReducers } from 'redux';
 
 // Updates an entity cache in response to any action with response.entities.
