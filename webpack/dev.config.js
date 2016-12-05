@@ -2,8 +2,6 @@
 var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
-var precss = require('precss');
-var autoprefixer = require('autoprefixer');
 
 var assetsPath = path.resolve(__dirname, '../static/dist');
 var host = (process.env.HOST || 'localhost');
@@ -92,9 +90,6 @@ module.exports = {
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
       { test: webpackIsomorphicToolsPlugin.regular_expression('images'), loader: 'url-loader?limit=10240' }
     ]
-  },
-  postcss: function () {
-    return [precss, autoprefixer];
   },
   progress: true,
   resolve: {
