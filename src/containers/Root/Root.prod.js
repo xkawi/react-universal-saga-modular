@@ -1,7 +1,7 @@
 import has from 'lodash/has';
 import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import { Router, RouterContext, applyRouterMiddleWare } from 'react-router';
+import { Router, RouterContext, applyRouterMiddleware } from 'react-router';
 import GoogleAnalytics from 'react-ga';
 import { useScroll } from 'react-router-scroll';
 
@@ -31,7 +31,7 @@ export default class Root extends Component {
               history={history}
               routes={routes}
               onUpdate={this.onUpdate}
-              render={applyRouterMiddleWare(useScroll())}
+              render={applyRouterMiddleware(useScroll())}
             />
             }
         </div>
