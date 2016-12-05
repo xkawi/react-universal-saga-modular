@@ -74,8 +74,8 @@ app.use((req, res) => {
       />);
 
       const preloaders = renderProps.components
-      .filter((component) => component && component.preload)
-      .map((component) => component.preload(renderProps.params, req))
+      .filter(component => component && component.preload)
+      .map(component => component.preload(renderProps.params, req))
       .reduce((result, preloader) => result.concat(preloader), []);
 
       store.runSaga(waitAll(preloaders)).done.then(() => {

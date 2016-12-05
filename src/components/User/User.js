@@ -14,7 +14,7 @@ export default class User extends Component {
           </h3>
         </Link>
       </div>
-      );
+    );
   }
 }
 

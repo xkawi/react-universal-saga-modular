@@ -49,7 +49,7 @@ class RepoPage extends Component {
           {...stargazersPagination}
         />
       </div>
-      );
+    );
   }
 }
 

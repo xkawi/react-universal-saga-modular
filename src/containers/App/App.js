@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.errorMessage) {
+    if (nextProps.errorMessage && this.props.errorMessage !== nextProps.errorMessage) {
       // handle error here
     }
     if (this.props.location.pathname !== nextProps.location.pathname) {
@@ -57,7 +57,7 @@ class App extends Component {
           {children}
         </div>
       </div>
-      );
+    );
   }
 }
 

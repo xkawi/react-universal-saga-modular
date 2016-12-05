@@ -7,7 +7,7 @@ export default class List extends Component {
       <button style={{ fontSize: '150%' }} onClick={onLoadMoreClick} disabled={isFetching}>
         {isFetching ? 'Loading...' : 'Load More'}
       </button>
-      );
+    );
   }
 
   render() {
@@ -31,7 +31,7 @@ export default class List extends Component {
         {items.map(renderItem)}
         {pageCount > 0 && !isLastPage && this.renderLoadMore()}
       </div>
-      );
+    );
   }
 }
 

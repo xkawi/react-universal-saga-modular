@@ -51,7 +51,7 @@ class UserPage extends Component {
           {...starredPagination}
         />
       </div>
-      );
+    );
   }
 }
 

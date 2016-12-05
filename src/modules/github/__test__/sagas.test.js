@@ -5,7 +5,7 @@ import { getUser } from '../selectors';
 describe('fetching user profile', () => {
   const username = 'xkawi';
   const generator = loadUser(username, []);
-  let next = undefined;
+  let next;
 
   it('from local state', () => {
     next = generator.next();

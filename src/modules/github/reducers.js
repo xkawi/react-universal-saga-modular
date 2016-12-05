@@ -1,7 +1,7 @@
+import { combineReducers } from 'redux';
+import merge from 'lodash/merge';
 import * as ActionTypes from './actions';
 import paginate from './paginate';
-import merge from 'lodash/merge';
-import { combineReducers } from 'redux';
 
 // Updates an entity cache in response to any action with response.entities.
 export const entities = (state = { users: {}, repos: {} }, action) => {

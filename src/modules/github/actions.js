@@ -12,22 +12,22 @@ export const LOAD_MORE_STARGAZERS = 'LOAD_MORE_STARGAZERS';
 
 export const sagaActions = {
   user: {
-    request: (login) => action(USER.REQUEST, { login }),
+    request: login => action(USER.REQUEST, { login }),
     success: (login, response) => action(USER.SUCCESS, { login, response }),
     failure: (login, error) => action(USER.FAILURE, { login, error }),
   },
   repo: {
-    request: (fullName) => action(REPO.REQUEST, { fullName }),
+    request: fullName => action(REPO.REQUEST, { fullName }),
     success: (fullName, response) => action(REPO.SUCCESS, { fullName, response }),
     failure: (fullName, error) => action(REPO.FAILURE, { fullName, error }),
   },
   starred: {
-    request: (login) => action(STARRED.REQUEST, { login }),
+    request: login => action(STARRED.REQUEST, { login }),
     success: (login, response) => action(STARRED.SUCCESS, { login, response }),
     failure: (login, error) => action(STARRED.FAILURE, { login, error }),
   },
   stargazers: {
-    request: (fullName) => action(STARGAZERS.REQUEST, { fullName }),
+    request: fullName => action(STARGAZERS.REQUEST, { fullName }),
     success: (fullName, response) => action(STARGAZERS.SUCCESS, { fullName, response }),
     failure: (fullName, error) => action(STARGAZERS.FAILURE, { fullName, error }),
   }
@@ -40,6 +40,6 @@ export const viewActions = {
   loadRepoPage: (fullName, requiredFields = []) => (
     action(LOAD_REPO_PAGE, { fullName, requiredFields })
   ),
-  loadMoreStarred: (login) => action(LOAD_MORE_STARRED, { login }),
-  loadMoreStargazers: (fullName) => action(LOAD_MORE_STARGAZERS, { fullName })
+  loadMoreStarred: login => action(LOAD_MORE_STARRED, { login }),
+  loadMoreStargazers: fullName => action(LOAD_MORE_STARGAZERS, { fullName })
 };
