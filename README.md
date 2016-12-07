@@ -29,6 +29,7 @@ NOTE: PORT is not set for `better-npm-run start-prod` script, because it is nece
 
 The main objective of react-universal-saga-modular is to provide a more modular, scalable, and manageable codebase as your project grows in complexity and size. This repo can serve as an example, or a starting point for your next Universal React project. If you are not familiar with this structure, or prefer something else (e.g. generator-based, less opinionated, etc) feel free to checkout other alternatives, such as:
 
+* [Next.js](https://github.com/zeit/next.js)
 * [react-universal-saga](https://github.com/xkawi/react-universal-saga)
 * [react-boilerplate](https://github.com/mxstbr/react-boilerplate)
 * [react-server](https://github.com/redfin/react-server)

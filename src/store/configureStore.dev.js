@@ -1,7 +1,7 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'remote-redux-devtools';
 import createLogger from 'redux-logger';
 import createSagaMiddleware, { END } from 'redux-saga';
-import DevTools from '../containers/DevTools/DevTools';
 import rootReducer from '../modules/rootReducer';
 
 export default function configureStore(history, initialState) {
@@ -10,12 +10,11 @@ export default function configureStore(history, initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    compose(
+    composeWithDevTools(
       applyMiddleware(
         sagaMiddleware,
         createLogger()
-      ),
-      DevTools.instrument()
+      )
     )
   );
 
