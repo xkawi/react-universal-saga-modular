@@ -7,12 +7,7 @@ import { useScroll } from 'react-router-scroll';
 import DevTools from '../DevTools/DevTools';
 
 export default class Root extends Component {
-  constructor(props) {
-    super(props);
-    this.onUpdate = this.onUpdate.bind(this);
-  }
-
-  onUpdate() {
+  onUpdate = () => {
     const { store, type } = this.props;
     if (type !== 'server') {
       const state = store.getState();
@@ -21,6 +16,7 @@ export default class Root extends Component {
       }
     }
   }
+
   render() {
     const { store, history, routes, type, renderProps } = this.props;
     return (

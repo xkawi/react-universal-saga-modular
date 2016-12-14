@@ -3,15 +3,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { viewActions } from 'modules/github/actions';
 import { Repo, User, List } from 'components';
-import styles from './RepoPage.scss'; // eslint-disable-line
+import styles from './RepoPage.scss';
 
 class RepoPage extends Component {
-  constructor(props) {
-    super(props);
-    this.renderUser = this.renderUser.bind(this);
-    this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
-  }
-
   componentWillMount() {
     this.props.actions.loadRepoPage(this.props.fullName);
   }
@@ -22,13 +16,11 @@ class RepoPage extends Component {
     }
   }
 
-  handleLoadMoreClick() {
+  handleLoadMoreClick = () => {
     this.props.actions.loadMoreStargazers(this.props.fullName);
   }
 
-  renderUser(user) {
-    return (<User user={user} key={user.login} />);
-  }
+  renderUser = user => (<User user={user} key={user.login} />);
 
   render() {
     const { repo, owner, name } = this.props;
@@ -66,7 +58,7 @@ RepoPage.propTypes = {
   })
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   const { login, name } = state.router.params;
   const {
     pagination: { stargazersByRepo },
@@ -85,12 +77,10 @@ function mapStateToProps(state) {
     repo: repos[fullName],
     owner: users[login]
   };
-}
+};
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(viewActions, dispatch)
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(viewActions, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(RepoPage);

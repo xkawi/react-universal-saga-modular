@@ -4,7 +4,7 @@ import 'isomorphic-fetch';
 import config from 'config';
 
 // Extracts the next page URL from Github API response.
-function getNextPageUrl(response) {
+const getNextPageUrl = (response) => {
   const link = response.headers.get('link');
   if (!link) {
     return null;
@@ -16,13 +16,13 @@ function getNextPageUrl(response) {
   }
 
   return nextLink.split(';')[0].slice(1, -1);
-}
+};
 
 const PROXY_ROOT = '/api';
 
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
-function callApi(endpoint, schema) {
+const callApi = (endpoint, schema) => {
   let fullUrl = (endpoint.indexOf(PROXY_ROOT) === -1) ? `${PROXY_ROOT}/${endpoint}` : endpoint;
 
   // If request comes from server side, call API url directly.
@@ -46,13 +46,13 @@ function callApi(endpoint, schema) {
       return Object.assign({},
         normalize(camelizedJson, schema),
         { nextPageUrl }
-        );
+      );
     })
     .then(
       response => ({ response }),
       error => ({ error: error.message || 'Something bad happened.' })
-      );
-}
+    );
+};
 
 // We use this Normalizr schemas to transform API responses from a nested form
 // to a flat form where repos and users are placed in `entities`, and nested
