@@ -27,9 +27,9 @@ class UserPage extends Component {
     this.props.actions.loadMoreStarred(this.props.login);
   }
 
-  renderRepo([repo, owner]) {
-    return (<Repo repo={repo} owner={owner} key={repo.fullName} />);
-  }
+  renderRepo = ([repo, owner]) => (
+    <Repo repo={repo} owner={owner} key={repo.fullName} />
+  )
 
   render() {
     const { user, login } = this.props;
@@ -67,15 +67,14 @@ UserPage.propTypes = {
   starredRepoOwners: PropTypes.array.isRequired
 };
 
-function preload({ login }) {
-  return [
-    [loadUser, login, []],
-    [loadStarred, login]
-  ];
-}
+const preload = ({ login }) => ([
+  [loadUser, login, []],
+  [loadStarred, login]
+]);
+
 UserPage.preload = preload;
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   const { login } = state.router.params;
   const {
     pagination: { starredByUser },
@@ -93,12 +92,10 @@ function mapStateToProps(state) {
     starredPagination,
     user: users[login]
   };
-}
+};
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(viewActions, dispatch)
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(viewActions, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPage);

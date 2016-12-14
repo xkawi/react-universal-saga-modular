@@ -11,11 +11,6 @@ import {
 import styles from './App.scss'; // eslint-disable-line
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
   componentWillMount() {
     this.props.updateRouterState({
       pathname: this.props.location.pathname,
@@ -40,7 +35,7 @@ class App extends Component {
     e.preventDefault();
   }
 
-  handleChange(nextValue) {
+  handleChange = (nextValue) => {
     this.props.navigate(`/${nextValue}`);
   }
 
@@ -74,12 +69,10 @@ App.propTypes = {
   params: PropTypes.object
 };
 
-function mapStateToProps(state) {
-  return {
-    errorMessage: state.errorMessage,
-    inputValue: state.router.pathname.substring(1)
-  };
-}
+const mapStateToProps = state => ({
+  errorMessage: state.errorMessage,
+  inputValue: state.router.pathname.substring(1)
+});
 
 export default connect(mapStateToProps, {
   navigate,
