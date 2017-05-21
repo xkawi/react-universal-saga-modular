@@ -82,13 +82,13 @@
       }
     },
     "build-dev": {
-      "command": "webpack --verbose --colors --display-error-details --config webpack/dev.config.js",
+      "command": "webpack --colors --display-error-details --config webpack/dev.config.js",
       "env": {
         "NODE_ENV": "development"
       }
     },
     "build": {
-      "command": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js",
+      "command": "webpack --colors --display-error-details --config webpack/prod.config.js",
       "env": {
         "NODE_ENV": "production"
       }
@@ -159,6 +159,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "font-awesome": "^4.7.0",
     "font-awesome-webpack": "0.0.5-beta.2",
+    "happypack": "^3.1.0",
     "jest": "^17.0.3",
     "node-sass": "^3.4.2",
     "postcss-loader": "^1.2.0",
