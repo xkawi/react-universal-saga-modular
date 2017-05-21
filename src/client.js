@@ -28,7 +28,7 @@ async function renderClient() {
   }
 
   const dest = document.getElementById('content');
-  const store = configureStore(history, initialState);
+  const store = configureStore(initialState);
   const persistor = createPersistor(store, persistConfig); // eslint-disable-line
 
   store.runSaga(rootSaga);

@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware, { END } from 'redux-saga';
 import rootReducer from '../modules/rootReducer';
 
-const configureStore = (history, initialState) => {
+const configureStore = (initialState) => {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
     rootReducer,

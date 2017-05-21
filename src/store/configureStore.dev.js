@@ -4,7 +4,7 @@ import createLogger from 'redux-logger';
 import createSagaMiddleware, { END } from 'redux-saga';
 import rootReducer from '../modules/rootReducer';
 
-const configureStore = (history, initialState) => {
+const configureStore = (initialState) => {
   const sagaMiddleware = createSagaMiddleware();
 
   const store = createStore(
