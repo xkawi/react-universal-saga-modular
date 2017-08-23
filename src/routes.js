@@ -9,9 +9,9 @@ import {
 
 export default () => (
   <Route path="/" component={App}>
+    <Route path="/404" component={NotFound} />
     <Route path="/:login" component={UserPage} />
     <Route path="/:login/:name" component={RepoPage} />
-    <Route path="/404" component={NotFound} />
     <Route path="*" component={NotFound} />
   </Route>
 );
